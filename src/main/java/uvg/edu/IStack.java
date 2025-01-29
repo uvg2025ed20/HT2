@@ -1,6 +1,6 @@
 package uvg.edu;
 
-import java.util.EmptyStackException;  // Importa la clase EmptyStackException
+import java.util.EmptyStackException;
 
 /**
  * Interfaz para una pila genérica.
@@ -10,9 +10,9 @@ public interface IStack<T> {
     
     /**
      * Agrega un elemento a la cima de la pila.
-     * @param item Elemento a agregar.
+     * @param element Elemento a agregar.
      */
-    void push(T item);
+    void push(T element);
     
     /**
      * Elimina y devuelve el elemento en la cima de la pila.

@@ -1,4 +1,5 @@
 uvg\edu\CalculadoraADT.class
 uvg\edu\App.class
+uvg\edu\IPostfixCalculator.class
 uvg\edu\Pila.class
 uvg\edu\IStack.class
