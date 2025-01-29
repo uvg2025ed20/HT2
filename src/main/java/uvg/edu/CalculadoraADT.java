@@ -30,13 +30,15 @@ public class CalculadoraADT implements IPostfixCalculator {
      */
     @Override
     public void readFromFile(String path) throws IOException {
+        StringBuilder contenido = new StringBuilder();  // Usamos StringBuilder para acumular el contenido
         try (BufferedReader br = new BufferedReader(new FileReader(path))) {
             String linea;
-            // Read the first line from the file to set the expression
-            if ((linea = br.readLine()) != null) {
-                this.expresion = linea;
-                System.out.println("Contenido leído: " + this.expresion);
+            // Lee todas las líneas del archivo
+            while ((linea = br.readLine()) != null) {
+                contenido.append(linea).append(System.lineSeparator());  // Agrega cada línea con un salto de línea
             }
+            this.expresion = contenido.toString();  // Guarda el contenido completo
+            System.out.println("Contenido leído: " + this.expresion);
         } catch (IOException e) {
             throw new IOException("Error leyendo el archivo: " + e.getMessage());
         }
