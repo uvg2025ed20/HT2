@@ -5,6 +5,10 @@ import java.io.*;
 /**
  * The App class is the entry point of the application.
  * It reads a file containing postfix expressions and evaluates them using a calculator.
+ * Integrantes:
+ *  * - Pablo Vásquez
+ *  * - Carlos López
+ *  * - Angel Sanabria
  */
 public class App {
     /**

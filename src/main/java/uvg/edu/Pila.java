@@ -7,6 +7,10 @@ import java.util.EmptyStackException;
  * The Pila class implements a generic stack using a Vector.
  *
  * @param <T> The type of elements stored in the stack.
+ * Integrantes:
+ *  * - Pablo Vásquez
+ *  * - Carlos López
+ *  * - Angel Sanabria
  */
 public class Pila<T> implements IStack<T> {
     private Vector<T> elementos;

@@ -5,6 +5,10 @@ package uvg.edu;
     /**
      * Interface for a generic stack.
      * @param <T> The type of elements stored in the stack.
+     * Integrantes:
+     *  * - Pablo Vásquez
+     *  * - Carlos López
+     *  * - Angel Sanabria
      */
     public interface IStack<T> {
 

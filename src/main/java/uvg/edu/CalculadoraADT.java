@@ -6,6 +6,10 @@ import java.util.Stack;
 /**
  * The CalculadoraADT class provides methods to evaluate postfix expressions.
  * Implements the IPostfixCalculator interface.
+ * Integrantes:
+ *  * - Pablo Vásquez
+ *  * - Carlos López
+ *  * - Angel Sanabria
  */
 public class CalculadoraADT implements IPostfixCalculator {
     private Stack<Integer> pila;
@@ -85,6 +89,15 @@ public class CalculadoraADT implements IPostfixCalculator {
         return "+-*/%".contains(token);
     }
 
+    /**
+     * Retrieves the current postfix expression stored in the calculator.
+     *
+     * @return The stored postfix expression as a String, or null if no expression has been set.
+     */
+    public String getExpresion() {
+        return this.expresion;
+    }
+    
     /**
      * Performs the specified operation on two operands.
      *

@@ -3,6 +3,10 @@ import java.io.IOException;
 
 /**
  * Interface for a Postfix Calculator.
+ * Integrantes:
+ *  * - Pablo Vásquez
+ *  * - Carlos López
+ *  * - Angel Sanabria
  */
 public interface IPostfixCalculator {
 
