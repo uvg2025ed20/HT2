@@ -22,13 +22,6 @@ public interface IStack<T> {
     T pop() throws EmptyStackException;
     
     /**
-     * Devuelve el elemento en la cima de la pila sin eliminarlo.
-     * @return Elemento en la cima.
-     * @throws EmptyStackException Si la pila está vacía.
-     */
-    T peek() throws EmptyStackException;
-    
-    /**
      * Verifica si la pila está vacía.
      * @return true si la pila está vacía, false en caso contrario.
      */
