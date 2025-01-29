@@ -28,6 +28,21 @@ public class Pila<T> implements IStack<T> {
         elementos.add(item);
     }
 
+
+    /**
+     * Returns the element at the top of the stack without removing it.
+     *
+     * @return The element at the top of the stack.
+     * @throws EmptyStackException If the stack is empty.
+     */
+    @Override
+    public T peek() throws EmptyStackException {
+        if (isEmpty()) {
+            throw new EmptyStackException();
+        }
+        return elementos.get(elementos.size() - 1);
+    }
+
     /**
      * Removes and returns the element at the top of the stack.
      *
