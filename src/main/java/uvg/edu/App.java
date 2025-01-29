@@ -24,12 +24,7 @@ public class App {
         String ruta = "src/main/java/uvg/edu/datos.txt";
 
         try {
-            // Read the postfix expression from the file
             calculadora.readFromFile(ruta);
-
-            // Evaluate the expression
-            int resultado = calculadora.evaluateExpression();
-            System.out.println("Resultado de la evaluación: " + resultado);
 
         } catch (IOException e) {
             // Handle file reading errors

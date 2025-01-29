@@ -30,15 +30,14 @@ public class CalculadoraADT implements IPostfixCalculator {
      */
     @Override
     public void readFromFile(String path) throws IOException {
-        StringBuilder contenido = new StringBuilder();  // Usamos StringBuilder para acumular el contenido
         try (BufferedReader br = new BufferedReader(new FileReader(path))) {
             String linea;
-            // Lee todas las líneas del archivo
             while ((linea = br.readLine()) != null) {
-                contenido.append(linea).append(System.lineSeparator());  // Agrega cada línea con un salto de línea
+                this.expresion = linea;
+                System.out.println("Evaluando expresión: " + this.expresion);
+                int resultado = evaluateExpression();
+                System.out.println("Resultado de la evaluación: " + resultado);
             }
-            this.expresion = contenido.toString();  // Guarda el contenido completo
-            System.out.println("Contenido leído: " + this.expresion);
         } catch (IOException e) {
             throw new IOException("Error leyendo el archivo: " + e.getMessage());
         }
@@ -56,18 +55,30 @@ public class CalculadoraADT implements IPostfixCalculator {
         if (expresion == null || expresion.isEmpty()) {
             throw new IllegalStateException("No hay expresión para evaluar");
         }
-
+    
         String[] tokens = expresion.split(" ");
         for (String token : tokens) {
             if (esOperando(token)) {
                 pila.push((int) Double.parseDouble(token));
             } else if (esOperador(token)) {
+                if (pila.size() < 2) {
+                    throw new IllegalArgumentException("Faltan operandos para el operador: " + token);
+                }
+    
                 double operandoB = pila.pop();
                 double operandoA = pila.pop();
                 double resultado = realizarOperacion(operandoA, operandoB, token);
                 pila.push((int) resultado);
+            } else {
+                throw new IllegalArgumentException("Token no válido: " + token);
             }
         }
+    
+        // Verificamos si al final solo queda un operando en la pila (el resultado)
+        if (pila.size() != 1) {
+            throw new IllegalArgumentException("Expresión postfix incorrecta: más de un resultado");
+        }
+    
         return pila.pop();
     }
 
