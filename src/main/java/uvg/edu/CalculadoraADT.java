@@ -8,7 +8,7 @@ import java.util.Stack;
  * Implements the IPostfixCalculator interface.
  */
 public class CalculadoraADT implements IPostfixCalculator {
-    private Stack<Double> pila;
+    private Stack<Integer> pila;
     private String expresion; // Store the current postfix expression
 
     /**
@@ -46,7 +46,7 @@ public class CalculadoraADT implements IPostfixCalculator {
      * @throws ArithmeticException If a division by zero occurs.
      */
     @Override
-    public double evaluateExpression() throws IllegalArgumentException {
+    public int evaluateExpression() throws IllegalArgumentException {
         if (expresion == null || expresion.isEmpty()) {
             throw new IllegalStateException("No hay expresión para evaluar");
         }
@@ -54,12 +54,12 @@ public class CalculadoraADT implements IPostfixCalculator {
         String[] tokens = expresion.split(" ");
         for (String token : tokens) {
             if (esOperando(token)) {
-                pila.push(Double.parseDouble(token));
+                pila.push((int) Double.parseDouble(token));
             } else if (esOperador(token)) {
                 double operandoB = pila.pop();
                 double operandoA = pila.pop();
                 double resultado = realizarOperacion(operandoA, operandoB, token);
-                pila.push(resultado);
+                pila.push((int) resultado);
             }
         }
         return pila.pop();

@@ -24,7 +24,7 @@ public class App {
             calculadora.readFromFile(ruta);
 
             // Evaluate the expression
-            double resultado = calculadora.evaluateExpression();
+            int resultado = calculadora.evaluateExpression();
             System.out.println("Resultado de la evaluación: " + resultado);
 
         } catch (IOException e) {
